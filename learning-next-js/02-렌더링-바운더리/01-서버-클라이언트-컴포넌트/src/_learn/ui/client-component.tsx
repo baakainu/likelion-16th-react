@@ -1,7 +1,8 @@
+'use client'
+
 import { cn } from '@/utils'
 
 export default function ClientComponent() {
-  
   return (
     <section
       className={cn(
@@ -25,11 +26,12 @@ export default function ClientComponent() {
         </abbr>
         )
       </h2>
-      <p className="font-mono text-xs text-pink-800 text-center leading-relaxed">
-        이 컴포넌트는 서버(Node.js)에러 렌더링되고,<br />
+      <p className="text-center font-mono text-xs leading-relaxed text-pink-800">
+        이 컴포넌트는 서버(Node.js)에서 렌더링되고,
+        <br />
         클라이언트(Browser) 환경에서 하이드레이션되었습니다.
       </p>
-      
+
       <button
         type="button"
         aria-label="좋아요"
@@ -41,6 +43,7 @@ export default function ClientComponent() {
           'active:scale-95',
           'focus:outline-pink-200',
         )}
+        onClick={() => alert('I Like You!')}
       >
         🩷
       </button>
