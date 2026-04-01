@@ -1,8 +1,21 @@
 'use client'
 
 import { cn } from '@/utils'
+import { useImmer } from 'use-immer'
 
 export default function ClientComponent() {
+  const [counterStore, setCountStore] = useImmer({
+    counter: {
+      countValue: {
+        count: 0,
+      },
+    },
+  })
+
+  const handleUpdateCountStore = () =>
+    setCountStore((draft) => {
+      draft.counter.countValue.count += 1
+    })
   return (
     <section
       className={cn(
@@ -22,7 +35,7 @@ export default function ClientComponent() {
             'no-underline decoration-pink-500/30 underline-offset-4 hover:underline',
           )}
         >
-          RCC
+          RCC [{counterStore.counter.countValue.count}]
         </abbr>
         )
       </h2>
@@ -43,7 +56,7 @@ export default function ClientComponent() {
           'active:scale-95',
           'focus:outline-pink-200',
         )}
-        onClick={() => alert('I Like You!')}
+        onClick={handleUpdateCountStore}
       >
         🩷
       </button>
