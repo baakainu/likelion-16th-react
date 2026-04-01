@@ -17,7 +17,9 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
   // React 서버 컴포넌트(RSC) -> HTML 페이지 렌더링 -> 클라이언트(브라우저)에 전송
   return (
     <html lang="ko-KR">
-      <body className="overflow-y-scroll">{children}</body>
+      <body className="min-h-screen overflow-y-scroll bg-slate-50 dark:bg-slate-950">
+        {children}
+      </body>
     </html>
   )
 }
