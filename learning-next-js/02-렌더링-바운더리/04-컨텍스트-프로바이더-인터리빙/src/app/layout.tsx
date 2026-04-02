@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Noto_Sans_KR } from 'next/font/google'
 import { cn } from '@/utils'
 import '@/styles/globals.css'
-import { NotiProvider } from '@/_learn/contexts/noti-context'
+// import { NotiProvider } from '@/_learn/contexts/noti-context'
+import { ToastProvider } from '@/contexts/toast-context'
 
 const notoSansKR = Noto_Sans_KR({ variable: '--font-noto' })
 
@@ -23,7 +24,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         )}
       >
         {/* 클라이언트 컴포넌트인 프로바이더가 감쌌는데 (인터리빙) 결과는? */}
-        <NotiProvider>{children}</NotiProvider>
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   )
