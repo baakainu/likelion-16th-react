@@ -1,5 +1,8 @@
-import { ClientComponent, ServerComponent } from '@/_learn'
 import { cn } from '@/utils'
+import { /* ClientComponent, ServerComponent, */ InterleavingDemo } from '@/_learn'
+import SubjectTitle from '@/components/subject-title'
+// import Cart from '@/components/cart' // 서버 컴포넌트
+// import Modal from '@/components/modal' // 클라이언트 컴포넌트
 
 export default function Page() {
 
@@ -13,29 +16,25 @@ export default function Page() {
         'bg-background min-h-screen',
       )}
     >
-      <header>
-        <h1
-          className={cn(
-            'text-foreground text-center text-4xl font-extralight',
-            'selection:bg-foreground selection:text-background',
-          )}
-        >
-          인터리빙
-          <br />
-          <span
-            lang="en"
-            className="inline-block -translate-y-2.5 text-xl text-slate-500"
-          >
-            Interleaving
-          </span>
-        </h1>
-      </header>
+      <SubjectTitle title={{
+        ko: '인터리빙',
+        en: 'Interleaving'
+      }} />
 
-      <main className="flex flex-col gap-5">
-        <ClientComponent>
+      <main className="flex flex-col gap-5 overflow-hidden transform-3d">
+
+        <InterleavingDemo />
+        
+        {/* 클라이언트 컴포넌트 (동기 처리, 이벤트 핸들링, 상태 관리 등) */}
+        {/* <Modal> */}
+          {/* 서버 컴포넌트 (비동기 처리, 사전 렌더링, 서버 데이터 가져오기 등) */}
+          {/* <Cart /> */}
+        {/* </Modal> */}
+
+        {/* <ClientComponent> */}
           {/* <slot></slot> <- props.children */}
-          <ServerComponent />
-        </ClientComponent>
+          {/* <ServerComponent /> */}
+        {/* </ClientComponent> */}
       </main>
     </div>
   )
